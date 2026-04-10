@@ -1,0 +1,453 @@
+/* ══════════════════════════════════════
+   NAVBAR — stato iniziale trasparente
+══════════════════════════════════════ */
+.toto-navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  background: rgba(13, 10, 8, 0.25);        /* trasparente all'inizio */
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(184, 145, 58, 0.0);  /* bordo invisibile */
+  transition: height 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+}
+
+/*  oro/rosso in cima alla navbar */
+/*.toto-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg,
+  transparent 0%, #b8913a 20%, #c62828 50%, #b8913a 80%, transparent 100%
+  );
+}*/
+
+/* quando scrollo diventa più piccola e solida */
+.toto-navbar.scrolled {
+  height: 85px;
+  background: rgba(8, 6, 4, 0.97);          /* quasi opaco */
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom-color: rgba(184, 145, 58, 0.35);
+}
+
+/* ══════════════════════════════════════
+   CONTENITORE INTERNO
+══════════════════════════════════════ */
+.toto-nav-inner {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ══════════════════════════════════════
+   BRAND / LOGO
+══════════════════════════════════════ */
+.toto-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.toto-logo-wrap {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.toto-brand:hover .toto-logo-wrap {
+  transform: rotate(-5deg) scale(1.06);
+}
+
+.toto-logo-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(184, 145, 58, 0.25);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.toto-brand:hover .toto-logo-ring {
+  border-color: rgba(184, 145, 58, 0.65);
+  box-shadow: 0 0 16px rgba(184, 145, 58, 0.18);
+}
+
+.toto-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.toto-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toto-brand-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #F5EFE6;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
+}
+.toto-brand:hover .toto-brand-name {
+  color: #ffffff;
+  letter-spacing: 5px;
+}
+
+.toto-brand-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #b8913a 0%, transparent 100%);
+  opacity: 0.4;
+}
+
+.toto-brand-motto {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #87CEEB;
+  letter-spacing: 1.8px;
+  opacity: 0.85;
+}
+
+/* ══════════════════════════════════════
+   ORNAMENTO CENTRALE (la lineetta con diamante)
+══════════════════════════════════════ */
+.toto-ornament {
+  flex: 1;
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0.15;
+}
+.toto-ornament::before,
+.toto-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #b8913a;
+}
+
+.toto-ornament-diamond {
+  width: 5px;
+  height: 5px;
+  background: #b8913a;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   LINK DI NAVIGAZIONE
+══════════════════════════════════════ */
+.toto-nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.toto-nav-links li a {
+  position: relative;
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(245, 239, 230, 0.75);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  transition: color 0.3s ease;
+}
+
+/* Linea animata sotto il link */
+.toto-nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c62828, #b8913a);
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  left   0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toto-nav-links li a:hover,
+.toto-nav-links li a.active {
+  color: #F5EFE6;
+}
+.toto-nav-links li a:hover::after,
+.toto-nav-links li a.active::after {
+  width: 60%;
+  left: 20%;
+}
+
+/* Separatore verticale tra i link */
+.toto-nav-sep {
+  width: 1px;
+  height: 14px;
+  background: rgba(184, 145, 58, 0.18);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   BOTTONE "ORDINA ORA"
+══════════════════════════════════════ */
+.toto-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.78rem 1.8rem;
+  background: transparent;
+  border: 1.5px solid #c62828;
+  color: #F5EFE6;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: color 0.35s, border-color 0.35s;
+}
+
+/* Riempimento rosso che sale dal basso all'hover */
+.toto-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #c62828;
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+.toto-btn:hover {
+  border-color: #e53935;
+}
+.toto-btn:hover::before {
+  transform: translateY(0);
+}
+.toto-btn:hover .toto-btn-arrow {
+  transform: translateX(5px);
+}
+
+.toto-btn-text,
+.toto-btn-arrow {
+  position: relative;
+  z-index: 1;
+}
+.toto-btn-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* ══════════════════════════════════════
+   HAMBURGER (mobile)
+══════════════════════════════════════ */
+.toto-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.toto-hamburger span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: #F5EFE6;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+/* Animazione hamburger → X */
+.toto-hamburger.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.toto-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.toto-hamburger.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ══════════════════════════════════════
+   MENU MOBILE
+══════════════════════════════════════ */
+.toto-mobile-menu {
+  position: fixed;
+  top: 90px; left: 0; right: 0;
+  background: rgba(8, 6, 4, 0.98);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(184, 145, 58, 0.15);
+  padding: 2rem 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+  z-index: 999;
+}
+.toto-mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toto-mobile-menu a {
+  display: block;
+  padding: 1rem 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(245, 239, 230, 0.4);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  border-bottom: 1px solid rgba(184, 145, 58, 0.08);
+  transition: color 0.3s, padding-left 0.3s;
+}
+.toto-mobile-menu a:last-of-type {
+  border-bottom: none;
+}
+.toto-mobile-menu a:hover {
+  color: #F5EFE6;
+  padding-left: 14px;
+}
+
+/* Bottone CTA nel menu mobile */
+.toto-mobile-cta {
+  margin-top: 1.8rem;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 2rem;
+  background: #c62828;
+  color: white !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px !important;
+  text-transform: uppercase;
+  border-bottom: none !important;
+  border-radius: 4px;
+  width: fit-content;
+  transition: background 0.3s !important;
+}
+.toto-mobile-cta:hover {
+  background: #e53935 !important;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .toto-nav-links,
+  .toto-nav-sep,
+  .toto-ornament,
+  .toto-btn {
+    display: none;
+  }
+
+  .toto-hamburger {
+    display: flex;
+  }
+}
+
+/* modal */
+.btn-ordina-main {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-ordina-main:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+}
+
+.custom-modal {
+  border-radius: 25px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 18px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.action-btn:hover {
+  background: #fff;
+  border-color: #dee2e6;
+  transform: translateX(10px);
+  color: #000;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.btn-close:focus {
+  box-shadow: none;
+}

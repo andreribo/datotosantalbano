@@ -1,0 +1,139 @@
+.cta-finale {
+  padding: 7rem 0;
+  background: #1A1410;     /* ← colore sfondo sezione finale */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-finale::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(198, 40, 40, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #F5EFE6;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cta-subtitle {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(245, 239, 230, 0.5);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.orari-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(3, auto);
+  border: 1px solid rgba(245, 239, 230, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.orario-item {
+  padding: 1.2rem 2rem;
+  border-right: 1px solid rgba(245, 239, 230, 0.08);
+  text-align: center;
+}
+.orario-item:last-child {
+  border-right: none;
+}
+
+.orario-giorno {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #B8913A;
+  margin-bottom: 4px;
+}
+
+.orario-ora {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #F5EFE6;
+}
+
+.orario-chiuso {
+  font-size: 0.78rem;
+  color: rgba(245, 239, 230, 0.25);
+  font-style: italic;
+}
+
+.indirizzo-row {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(245, 239, 230, 0.45);
+}
+.indirizzo-row a {
+  color: #87CEEB;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.indirizzo-row a:hover {
+  opacity: 0.7;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  background: #25D366;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: #F5EFE6;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid rgba(245, 239, 230, 0.3);
+  border-radius: 3px;
+  transition: border-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.text-rosso { color: #C62828; }
+
+@media (max-width: 900px) {
+  .orari-grid { grid-template-columns: 1fr; }
+  .orario-item { border-right: none; border-bottom: 1px solid rgba(245, 239, 230, 0.08); }
+}

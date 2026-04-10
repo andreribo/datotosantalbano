@@ -1,0 +1,388 @@
+<!-- ══════════════════════════════════════
+     CAROUSEL PIZZE
+══════════════════════════════════════ -->
+<section class="carousel-section">
+  <div class="carousel-track-wrap">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg"
+          style="background-image: url('assets/pizze/toto.jpeg'); background-color: #3d1a0a;">
+        </div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="container carousel-slide-content">
+          <span class="carousel-tag">Signature</span>
+          <h2 class="carousel-title">La Totò</h2>
+          <p class="carousel-ingredienti">Mozzarella · Spianata Calabra<br>Pancetta affumicata · Gorgonzola DOP</p>
+          <!-- <div class="carousel-prezzo">€ 12,00</div> -->
+          <div class="carousel-cta-group">
+            <a routerLink="/menu" class="btn-primary-sm">Vedi nel menù</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg"
+          style="background-image: url('assets/pizze/mortadellona.jpeg'); background-color: #2a2010;">
+        </div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="container carousel-slide-content">
+          <span class="carousel-tag">La più amata</span>
+          <h2 class="carousel-title">La Mortadellona</h2>
+          <p class="carousel-ingredienti">Mozzarella fiordilatte · Mortadella<br>Pistacchi · Burrata DOP</p>
+          <!-- <div class="carousel-prezzo">€ 13,50</div> -->
+          <div class="carousel-cta-group">
+            <a routerLink="/menu" class="btn-primary-sm">Vedi nel menù</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg"
+          style="background-image: url('assets/pizze/ligure.jpeg'); background-color: #1a280a;">
+        </div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="container carousel-slide-content">
+          <span class="carousel-tag">Stagionale</span>
+          <h2 class="carousel-title">La Ligure</h2>
+          <p class="carousel-ingredienti">Mozzarella fiordilatte · Pesto<br>Speck · Burrata DOP</p>
+          <!-- <div class="carousel-prezzo">€ 13,00</div> -->
+          <div class="carousel-cta-group">
+            <a routerLink="/menu" class="btn-primary-sm">Vedi nel menù</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg"
+          style="background-image: url('assets/pizze/parmigiana.jpeg'); background-color: #0a1828;">
+        </div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="container carousel-slide-content">
+          <span class="carousel-tag">Nuova</span>
+          <h2 class="carousel-title">La Parmigiana</h2>
+          <p class="carousel-ingredienti">Pomodoro · Mozzarella<br>Melanzane fritte · Basilico · Grana</p>
+          <!-- <div class="carousel-prezzo">€ 14,00</div> -->
+          <div class="carousel-cta-group">
+            <a routerLink="/menu" class="btn-primary-sm">Vedi nel menù</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carousel-dots" id="carouselDots">
+    <div class="carousel-dot active" (click)="goTo(0)"></div>
+    <div class="carousel-dot" (click)="goTo(1)"></div>
+    <div class="carousel-dot" (click)="goTo(2)"></div>
+    <div class="carousel-dot" (click)="goTo(3)"></div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" (click)="prev()" aria-label="Precedente">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button class="carousel-btn" (click)="next()" aria-label="Successivo">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="carousel-progress">
+    <div class="carousel-progress-bar" id="progressBar"></div>
+  </div>
+</section>
+
+
+<section class="hero-intro">
+  <div class="container">
+    <p class="hero-intro-eyebrow">Sant'Albano Stura, Cuneo</p>
+    <h1 class="hero-intro-title">
+      La pizza che <em>nasce</em><br>dal territorio
+    </h1>
+    <p class="hero-intro-sub">
+      Impasto artigianale, ingredienti dei produttori locali cuneesi,
+      nel rispetto della tradizione.
+    </p>
+    <div class="hero-intro-cta">
+      <a routerLink="/menu" class="btn-primary">Scopri il menù</a>
+      <a href="#storia" class="btn-outline-light">Chi siamo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TRUST BAR
+══════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner container">
+    <div class="trust-item aos">
+      <div class="trust-text">
+        <strong>Ingredienti del territorio</strong>
+        <span>Fornitori locali cuneesi selezionati</span>
+      </div>
+    </div>
+    <div class="trust-item aos aos-delay-1">
+      <div class="trust-text">
+        <strong>Forno a legna</strong>
+        <span>Cottura tradizionale ad alta temperatura</span>
+      </div>
+    </div>
+    <div class="trust-item aos aos-delay-2">
+      <div class="trust-text">
+        <strong>Impasto artigianale</strong>
+        <span>Lievitazione naturale 48 ore</span>
+      </div>
+    </div>
+    <div class="trust-item aos aos-delay-3">
+      <div class="trust-text">
+        <strong>A Sant'Albano Stura</strong>
+        <span>Nel cuore della valle Stura</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     STORIA
+══════════════════════════════════════ -->
+<section class="storia" id="storia">
+  <div class="container">
+    <div class="storia-grid">
+
+      <div class="storia-img-wrap aos">
+        <img class="storia-img" src="assets/toto_allavoro.jpg" alt="Totò">
+        <div class="storia-img-frame"></div>
+        <div class="storia-badge">
+          <strong>Da<br>Totò</strong>
+          <span>dal 2019</span>
+        </div>
+      </div>
+
+      <div class="storia-text">
+        <p class="section-label aos">La nostra storia</p>
+        <h2 class="section-title aos aos-delay-1">
+          Una pizzeria fatta<br>di <span class="text-oro">persone</span>
+        </h2>
+        <blockquote class="storia-blockquote aos aos-delay-2">
+          Ciao! Se cerchi un posto dove la pizza non è solo un pasto, ma un vero e proprio abbraccio di sapori, la Pizzeria Da Totò a Sant'Albano Stura è la tua destinazione ideale. Immagina di varcare la soglia e venire accolto dal profumo inconfondibile del forno a legna e da un sorriso autentico: qui l’atmosfera è quella di casa, informale e conviviale, perfetta per una serata con gli amici o un momento di relax in famiglia. Dal 2019, Totò e il suo staff portano in tavola una filosofia che unisce la tradizione napoletana all'eccellenza piemontese, utilizzando farine poco raffinate che richiamano i sapori di una volta e ingredienti a chilometro zero selezionati dai produttori locali.        </blockquote>
+        <p class="storia-body aos aos-delay-3">
+          Ogni disco di pasta è un capolavoro di digeribilità e croccantezza. Che tu sia un amante della classica pizza tonda, della soffice cottura al tegamino o degli impasti alternativi come quello ai cereali, al farro o integrale, troverai pane per i tuoi denti. Ma non finisce qui: il menù è un viaggio gourmet che spazia dalle intramontabili "rosse" e "bianche" a creazioni settimanali che celebrano i prodotti di stagione. E se vuoi iniziare con il piede giusto, non perderti il mitico "Cuoppo" o i "Diavoletti" fritti. Concludere con un dessert della casa, magari i celebri Grissinciccioli, è il tocco finale per una "coccola" che fa bene al cuore. Da Totò, la felicità ha davvero una forma rotonda!        </p>
+        <a routerLink="/territorio" class="btn-outline aos aos-delay-4">
+          Il nostro territorio
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PIZZE SIGNATURE
+══════════════════════════════════════ -->
+<section class="pizze" id="pizze">
+  <div class="container">
+    <div class="pizze-header">
+      <p class="section-label">Le nostre signature</p>
+      <h2 class="section-title aos">
+        Le pizze <span class="text-rosso">che ci</span> rappresentano
+      </h2>
+    </div>
+
+    <div class="pizze-grid">
+      <div class="pizza-card aos">
+        <img class="pizza-img" src="assets/pizze/castelmagno.jpeg" alt="La Sturina">
+        <div class="pizza-card-body">
+          <span class="pizza-badge">Signature</span>
+          <div class="pizza-name">La Castelmagno</div>
+          <div class="pizza-ingredienti">Mozzarella Fiordilatte · Castelmagno · Nocciole Delle Langhe · Miele</div>
+          <div class="pizza-footer">
+            <span class="pizza-prezzo">€ 15,00</span>
+            <a routerLink="/menu" class="pizza-link">
+              Dettagli
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pizza-card aos aos-delay-1">
+        <img class="pizza-img" src="assets/pizze/nondirloallasuocera.jpeg" alt="Il Monviso">
+        <div class="pizza-card-body">
+          <span class="pizza-badge">La più amata</span>
+          <div class="pizza-name">Non dirlo alla suocera</div>
+          <div class="pizza-ingredienti">Fiordilatte · Porcini · Salsiccia di Bra</div>
+          <div class="pizza-footer">
+            <span class="pizza-prezzo">€ 15,00</span>
+            <a routerLink="/menu" class="pizza-link">
+              Dettagli
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pizza-card aos aos-delay-2">
+        <img class="pizza-img" src="assets/pizze/quattrostagioniplus.jpeg" alt="La Cuneese">
+        <div class="pizza-card-body">
+          <span class="pizza-badge">Stagionale</span>
+          <div class="pizza-name">Quattro stagioni plus</div>
+          <div class="pizza-ingredienti">Pesto · Mozzarella · Prosciutto · Funghi · Carciofini · Olive</div>
+          <div class="pizza-footer">
+            <span class="pizza-prezzo">€ 13,00</span>
+            <a routerLink="/menu" class="pizza-link">
+              Dettagli
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pizze-cta aos">
+      <a routerLink="/menu" class="btn-outline">
+        Vedi tutto il menù
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TERRITORIO
+══════════════════════════════════════ -->
+<section class="territorio" id="territorio">
+  <div class="container">
+    <div class="territorio-grid">
+
+      <div class="territorio-text">
+        <p class="section-label aos">Radici nel territorio</p>
+        <h2 class="section-title aos aos-delay-1">
+          Ogni pizza racconta<br>la <span class="text-oro">nostra storia</span>
+        </h2>
+        <p class="territorio-body aos aos-delay-2">
+          Crediamo che una buona pizza cominci molto prima del forno.
+          Collaboriamo con produttori locali cuneesi che condividono la nostra
+          filosofia: rispetto per la terra, qualità senza compromessi, filiera corta.
+        </p>
+
+        <div class="fornitori aos aos-delay-3">
+          <div class="fornitore-item">
+            <div class="fornitore-dot"></div>
+            <div>
+              <strong>Caseificio locale</strong>
+              <span>Fior di latte e formaggi freschi del territorio</span>
+            </div>
+          </div>
+          <div class="fornitore-item">
+            <div class="fornitore-dot"></div>
+            <div>
+              <strong>Orto di stagione</strong>
+              <span>Verdure fresche a km zero da Sant'Albano</span>
+            </div>
+          </div>
+          <div class="fornitore-item">
+            <div class="fornitore-dot"></div>
+            <div>
+              <strong>Salumificio cuneese</strong>
+              <span>Salumi e salsiccia di Bra DOP</span>
+            </div>
+          </div>
+        </div>
+
+        <a routerLink="/territorio" class="btn-outline aos aos-delay-4">
+          Scopri i nostri produttori
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="territorio-photos aos aos-delay-2">
+        <!-- Sostituisci con foto reali -->
+        <div class="t-photo" style="background:linear-gradient(135deg,#C8D4B8,#A8B898)">
+          <img src="assets/santalbano.jpg" alt="" style="object-fit: cover">
+        </div>
+        <div class="t-photo" style="background:linear-gradient(135deg,#D4C4B0,#B8A898)">
+          <img src="assets/salsicciabra.png" alt="" style="object-fit: cover; object-position: center;">
+        </div>
+        <div class="t-photo" style="background:linear-gradient(135deg,#B8C8A8,#98A888)">
+          <img src="assets/peperoni.png" alt="" style="object-fit: cover; object-position: center;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     RECENSIONI
+══════════════════════════════════════ -->
+<section class="recensioni">
+  <div class="container">
+    <div class="recensioni-header">
+      <p class="section-label" style="justify-content:center">Cosa dicono di noi</p>
+      <h2 class="section-title aos">Le parole dei <span class="text-oro">nostri clienti</span></h2>
+    </div>
+
+    <div class="recensioni-grid">
+      <div class="recensione-card aos">
+        <div class="stelle">★★★★★</div>
+        <p class="recensione-text">
+          "Pizza squisita con ottimi ingredienti! La pizza è perfetta in tutto: dall'impasto, agli ingredienti, alla cottura, al servizio in tavola cortese e simpatico. Mi ispiravano molti anche i piatti di gnocco fritto con affettati e lo gnocco fritto dolce con la Nutella che proverò un'altra volta. Da tornarci assolutamente!"
+        </p>
+        <div class="recensione-footer">
+          <div class="recensione-avatar">S</div>
+          <div>
+            <div class="recensione-nome">Stefania Ricca</div>
+            <div class="recensione-fonte">Recensione Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recensione-card aos aos-delay-1">
+        <div class="stelle">★★★★★</div>
+        <p class="recensione-text">
+          "Super consigliato!! Pizza sottile ma non secca. Condimento abbondante come piace a me. Anche il cornicione non è secco perché viene oliato e risulta molto gustoso. Oltre alle pizze classiche ne hanno di altre con prodotti del territorio molto gustose. Ho visto che hanno anche opzioni vegane.   Purtroppo mi è sembrato vedere che hanno pochi posti a sedere quindi conviene prenotare. Il personale è molto gentile, avevamo un cane e ci hanno anche chiesto se volevamo dell'acqua per lui"
+        </p>
+        <div class="recensione-footer">
+          <div class="recensione-avatar" style="background:#9A7A2E">V</div>
+          <div>
+            <div class="recensione-nome">Veronica Baldi</div>
+            <div class="recensione-fonte">Recensione Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recensione-card aos aos-delay-2">
+        <div class="stelle">★★★★★</div>
+        <p class="recensione-text">
+          "Ottima pizza, ambiente molto cordiale ed accogliente, una piacevole sorpresa          "
+        </p>
+        <div class="recensione-footer">
+          <div class="recensione-avatar" style="background:#1565C0">N</div>
+          <div>
+            <div class="recensione-nome">Nicolò Barison</div>
+            <div class="recensione-fonte">Recensione Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

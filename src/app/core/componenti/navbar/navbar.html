@@ -1,0 +1,105 @@
+<nav class="toto-navbar" [class.scrolled]="isScrolled">
+  <div class="toto-nav-inner">
+
+    <a class="toto-brand" routerLink="/">
+      <div class="toto-logo-wrap">
+        <div class="toto-logo-ring"></div>
+        <img class="toto-logo-img" src="assets/logo.png" alt="Da Totò">
+      </div>
+      <div class="toto-brand-text">
+        <span class="toto-brand-name">Da Totò</span>
+        <div class="toto-brand-divider"></div>
+        <span class="toto-brand-motto">Persone &amp; Territorio</span>
+      </div>
+    </a>
+
+    <div class="toto-ornament"><div class="toto-ornament-diamond"></div></div>
+
+    <ul class="toto-nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+      <div class="toto-nav-sep"></div>
+      <li><a routerLink="/menu" routerLinkActive="active">Il Menù</a></li>
+      <div class="toto-nav-sep"></div>
+      <li><a routerLink="/territorio" routerLinkActive="active">Territorio</a></li>
+      <div class="toto-nav-sep"></div>
+    </ul>
+
+    <button class="toto-btn" data-bs-toggle="modal"
+            data-bs-target="#modalOrdina">
+      <span class="toto-btn-text">Ordina ora</span>
+      <span class="toto-btn-arrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <button class="toto-hamburger" [class.open]="menuOpen"
+            (click)="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="toto-mobile-menu" [class.open]="menuOpen">
+  <a routerLink="/" (click)="closeMenu()">Home</a>
+  <a routerLink="/menu" (click)="closeMenu()">Il Menù</a>
+  <a routerLink="/territorio" (click)="closeMenu()">Territorio</a>
+  <a routerLink="/contatti" (click)="closeMenu()">Contatti</a>
+
+  <button type="button" class="toto-mobile-cta"
+          (click)="closeMenu()"
+          data-bs-toggle="modal"
+          data-bs-target="#modalOrdina">
+    Ordina ora
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="modalOrdina" tabindex="-1" aria-labelledby="modalOrdinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content custom-modal">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100 text-center fw-bold" id="modalOrdinaLabel">Scegli come ordinare</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <a href="https://pnssm.pro/c4z5k47" class="action-btn btn-tavolo">
+          <div class="icon-box">
+            <img src="assets/prenotazione.png" alt="Prenota" class="btn-img">
+          </div>
+          <span>Prenota un tavolo online</span>
+        </a>
+
+        <a href="https://pnssm.pro/lvdqzyc" class="action-btn btn-asporto">
+          <div class="icon-box">
+            <img src="assets/asporto.png" alt="Prenota" class="btn-img">
+          </div>
+          <span>Prenota da asporto</span>
+        </a>
+
+        <a href="https://wa.me/393400058291" class="action-btn btn-whatsapp">
+          <div class="icon-box">
+            <img src="assets/whatsapp.png" alt="Prenota" class="btn-img">
+          </div>
+          <span>Scrivici su WhatsApp</span>
+        </a>
+
+        <a href="tel:+393400058291" class="action-btn btn-phone">
+          <div class="icon-box">
+            <img src="assets/telefono.png" alt="Prenota" class="btn-img">
+          </div>
+          <span>Chiamaci ora</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

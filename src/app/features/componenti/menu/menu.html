@@ -1,0 +1,514 @@
+<section class="menu-hero">
+  <div class="container mt-4">
+    <h1 class="menu-hero-title">Il nostro <span>Menù</span></h1>
+    <p class="menu-hero-sub">Ingredienti del territorio cuneese, impasto artigianale a lievitazione naturale 48 ore.</p>
+    <div class="menu-nav-pills">
+      <a [routerLink]="['.']" fragment="pizze-rosse"       class="menu-nav-pill">🍅 Pizze Classiche</a>
+      <a [routerLink]="['.']" fragment="pizze-speciali"    class="menu-nav-pill">⭐ Speciali</a>
+      <a [routerLink]="['.']" fragment="pizze-ironiche"    class="menu-nav-pill">😄 Ironiche</a>
+      <a [routerLink]="['.']" fragment="pizze-vegan"       class="menu-nav-pill">🌿 Vegan</a>
+      <a [routerLink]="['.']" fragment="pizze-eccellenze"  class="menu-nav-pill">🏆 Eccellenze</a>
+      <a [routerLink]="['.']" fragment="hamburger"         class="menu-nav-pill">🍔 Hamburger</a>
+      <a [routerLink]="['.']" fragment="griglia"           class="menu-nav-pill">🔥 Griglia</a>
+      <a [routerLink]="['.']" fragment="antipasti"         class="menu-nav-pill">🫒 Antipasti</a>
+      <a [routerLink]="['.']" fragment="focacce"           class="menu-nav-pill">🫓 Focacce</a>
+      <a [routerLink]="['.']" fragment="dolci"             class="menu-nav-pill">🍮 Dolci</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     01 — PIZZE CLASSICHE (sfondo scuro)
+══════════════════════════════════════ -->
+<section class="menu-section-dark" id="pizze-rosse">
+  <div class="section-bg-num dark">01</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label dark">Le classiche</div>
+        <h2 class="section-heading dark">Pizze <em>Classiche</em></h2>
+        <p class="section-count dark">Pomodoro San Marzano DOP, fior di latte locale</p>
+      </div>
+      <div class="section-header-right dark">{{ classiche.length }} proposte</div>
+    </div>
+    <div class="grid-4">
+      @for (p of classiche; track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + (i % 4)">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }
+          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita } @else { Classica }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.extra) {
+              <div class="product-extra">{{ p.extra }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     02 — PIZZE SPECIALI (sfondo chiaro)
+══════════════════════════════════════ -->
+<section class="menu-section-light" id="pizze-speciali">
+  <div class="section-bg-num light">02</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label light">Le speciali</div>
+        <h2 class="section-heading light">Pizze <em>Speciali</em></h2>
+        <p class="section-count light">Abbinamenti ricercati, ingredienti d'eccellenza</p>
+      </div>
+      <div class="section-header-right light">{{ speciali.length }} proposte</div>
+    </div>
+
+    <!-- Prime 4: griglia 2 colonne -->
+    <div class="split-grid" style="margin-bottom: 1.5rem">
+      @for (p of speciali.slice(0, 4); track p.nome; let i = $index) {
+        <div class="product-card card-light aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita }
+              @else if (p.scelta) { 🏆 La più scelta }
+              @else { Speciale }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Resto: griglia 3 colonne -->
+    <div class="split-grid-bottom">
+      @for (p of speciali.slice(4); track p.nome; let i = $index) {
+        <div class="product-card card-light aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita }
+              @else if (p.scelta) { 🏆 La più scelta }
+              @else { Speciale }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     03 — PIZZE IRONICHE (sfondo scuro)
+══════════════════════════════════════ -->
+<section class="menu-section-dark" id="pizze-ironiche">
+  <div class="section-bg-num dark">03</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label dark">Un po' particolari</div>
+        <h2 class="section-heading dark">Pizze <em>Ironiche</em></h2>
+        <p class="section-count dark">Nomi che raccontano una storia</p>
+      </div>
+      <div class="section-header-right dark">{{ ironiche.length }} proposte</div>
+    </div>
+
+    <!-- Prime 4: griglia 2 colonne -->
+    <div class="split-grid" style="margin-bottom: 1.5rem">
+      @for (p of ironiche.slice(0, 4); track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">Ironica</span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.descrizione) {
+              <div class="product-desc">{{ p.descrizione }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+              @if (p.preferita) {
+                <span class="product-tag">⭐ Preferita</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Resto: griglia 3 colonne -->
+    <div class="split-grid-bottom">
+      @for (p of ironiche.slice(4); track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">Ironica</span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.descrizione) {
+              <div class="product-desc">{{ p.descrizione }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+              @if (p.preferita) {
+                <span class="product-tag">⭐ Preferita</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     04 — PIZZE VEGAN (sfondo chiaro)
+══════════════════════════════════════ -->
+<section class="menu-section-light" id="pizze-vegan">
+  <div class="section-bg-num light">04</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label light">Per tutti</div>
+        <h2 class="section-heading light">Proposte <em>Vegan</em></h2>
+        <p class="section-count light">Adatte a vegani e vegetariani</p>
+      </div>
+      <div class="section-header-right light">{{ vegan.length }} proposte</div>
+    </div>
+    <div class="grid-3">
+      @for (p of vegan; track p.nome; let i = $index) {
+        <div class="product-card card-light aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">Vegan</span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     05 — ECCELLENZE DEL TERRITORIO (sfondo scuro)
+══════════════════════════════════════ -->
+<section class="menu-section-dark" id="pizze-eccellenze">
+  <div class="section-bg-num dark">05</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label dark">Le nostre migliori</div>
+        <h2 class="section-heading dark"><em>Eccellenze</em> del Territorio</h2>
+        <p class="section-count dark">Ingredienti locali, ricette originali</p>
+      </div>
+      <div class="section-header-right dark">{{ eccellenze.length }} proposte</div>
+    </div>
+
+    <!-- Prime 4: griglia 2 colonne -->
+    <div class="split-grid" style="margin-bottom: 1.5rem">
+      @for (p of eccellenze.slice(0, 4); track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita }
+              @else if (p.piccante) { 🌶 La più piccante }
+              @else { Eccellenza }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.descrizione) {
+              <div class="product-desc">{{ p.descrizione }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+              @if (p.extra) {
+                <span class="product-tag">+ Extra</span>
+              }
+            </div>
+            @if (p.extra) {
+              <div class="product-extra">{{ p.extra }}</div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Resto: griglia 3 colonne -->
+    <div class="split-grid-bottom">
+      @for (p of eccellenze.slice(4); track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita }
+              @else if (p.piccante) { 🌶 La più piccante }
+              @else { Eccellenza }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.descrizione) {
+              <div class="product-desc">{{ p.descrizione }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+              @if (p.extra) {
+                <span class="product-tag">+ Extra</span>
+              }
+            </div>
+            @if (p.extra) {
+              <div class="product-extra">{{ p.extra }}</div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIVISORE TEMATICO
+══════════════════════════════════════ -->
+<div class="thematic-divider">
+  <div class="container">
+    <div class="thematic-divider-inner aos">
+      <div class="thematic-divider-line"><div class="thematic-divider-diamond"></div></div>
+      <h2>Non solo <span>pizza</span></h2>
+      <p>Hamburger, griglia, antipasti, focacce e dolci</p>
+      <div class="thematic-divider-line"><div class="thematic-divider-diamond"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HAMBURGER (sfondo chiaro)
+══════════════════════════════════════ -->
+<section class="menu-section-light" id="hamburger">
+  <div class="section-bg-num light">🍔</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label light">Pane artigianale</div>
+        <h2 class="section-heading light"><em>Hamburger</em></h2>
+        <p class="section-count light">Carne selezionata, tutti disponibili in versione chicken</p>
+      </div>
+      <div class="section-header-right light">{{ hamburger.length }} proposte</div>
+    </div>
+    <div class="grid-4">
+      @for (p of hamburger; track p.nome; let i = $index) {
+        <div class="product-card card-light aos" [class]="'aos-delay-' + (i % 4)">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.preferita) { ⭐ Preferita } @else { Hamburger }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.extra) {
+              <div class="product-extra">{{ p.extra }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+              <span class="product-tag">🍗 Anche chicken</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     GRIGLIA (sfondo scuro)
+══════════════════════════════════════ -->
+<section class="menu-section-dark" id="griglia">
+  <div class="section-bg-num dark">🔥</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label dark">Brace e fuoco vivo</div>
+        <h2 class="section-heading dark">Dalla <em>Griglia</em></h2>
+        <p class="section-count dark">Carni selezionate, cottura a legna</p>
+      </div>
+      <div class="section-header-right dark">{{ griglia.length }} proposte</div>
+    </div>
+    <div class="other-section-grid">
+      @for (p of griglia; track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">
+              @if (p.nota) { 👶 Per i Bambini } @else { Griglia }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            @if (p.extra) {
+              <div class="product-extra">{{ p.extra }}</div>
+            }
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ANTIPASTI (sfondo chiaro, card orizzontali)
+══════════════════════════════════════ -->
+<section class="menu-section-light" id="antipasti">
+  <div class="section-bg-num light">🫒</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label light">Per iniziare</div>
+        <h2 class="section-heading light"><em>Antipasti</em></h2>
+        <p class="section-count light">Ingredienti freschi, prodotti del territorio</p>
+      </div>
+      <div class="section-header-right light">{{ antipasti.length }} proposte</div>
+    </div>
+    <div class="grid-horizontal-2">
+      @for (p of antipasti; track p.nome; let i = $index) {
+        <div class="product-card card-horizontal card-light aos" [class]="'aos-delay-' + (i % 2)">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }
+          <div class="product-body">
+            <span class="product-badge">
+              @if (p.novita) { Novità } @else { Antipasto }
+            </span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOCACCE (sfondo scuro)
+══════════════════════════════════════ -->
+<section class="menu-section-dark" id="focacce">
+  <div class="section-bg-num dark">🫓</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label dark">Farcite una sopra l'altra</div>
+        <h2 class="section-heading dark">Focacce <em>Baciate</em></h2>
+        <p class="section-count dark">Lievitazione naturale, croccante fuori morbida dentro</p>
+      </div>
+      <div class="section-header-right dark">{{ focacce.length }} proposte</div>
+    </div>
+    <div class="other-section-grid">
+      @for (p of focacce; track p.nome; let i = $index) {
+        <div class="product-card card-dark aos" [class]="'aos-delay-' + i">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">Focaccia</span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DOLCI (sfondo chiaro)
+══════════════════════════════════════ -->
+<section class="menu-section-light" id="dolci">
+  <div class="section-bg-num light">🍮</div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="section-label light">Per finire in dolcezza</div>
+        <h2 class="section-heading light">I <em>Dolci</em></h2>
+        <p class="section-count light">Preparati da noi, disponibili per asporto</p>
+      </div>
+      <div class="section-header-right light">{{ dolci.length }} proposte</div>
+    </div>
+    <div class="dolci-grid">
+      @for (p of dolci; track p.nome; let i = $index) {
+        <div class="product-card card-light aos" [class]="'aos-delay-' + (i % 4)">
+          @if(p.percorso) {
+            <div class="product-img">
+              <img [src]="p.percorso" [alt]="p.nome" loading="lazy">
+            </div>
+          }          <div class="product-body">
+            <span class="product-badge">Dolce</span>
+            <div class="product-name">{{ p.nome }}</div>
+            <div class="product-ing">{{ p.ingredienti }}</div>
+            <div class="product-footer">
+              <span class="product-price">€ {{ p.prezzo }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

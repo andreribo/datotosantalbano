@@ -1,0 +1,231 @@
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="t-hero">
+  <div class="container">
+    <p class="t-hero-label">Da Totò — Sant'Albano Stura</p>
+    <h1 class="t-hero-title">Il nostro <span>Territorio</span></h1>
+    <p class="t-hero-sub">
+      Ogni ingrediente ha un'origine precisa, un produttore che lo cura,
+      una storia che vale la pena raccontare. Questo è ciò che mettiamo nella pizza.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     STATS STRIP
+══════════════════════════════════════ -->
+<div class="t-intro-strip">
+  <div class="container">
+    <div class="t-intro-strip-inner">
+      <div class="t-stat">
+        <div class="t-stat-num">15</div>
+        <div class="t-stat-label">Prodotti selezionati</div>
+      </div>
+      <div class="t-stat-divider"></div>
+      <div class="t-stat">
+        <div class="t-stat-num">100%</div>
+        <div class="t-stat-label">Filiera tracciata</div>
+      </div>
+      <div class="t-stat-divider"></div>
+      <div class="t-stat">
+        <div class="t-stat-num">8</div>
+        <div class="t-stat-label">Regioni italiane</div>
+      </div>
+      <div class="t-stat-divider"></div>
+      <div class="t-stat">
+        <div class="t-stat-num">DOP</div>
+        <div class="t-stat-label">Certificazioni di qualità</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MANIFESTO
+══════════════════════════════════════ -->
+<section class="t-manifesto">
+  <div class="container">
+    <div class="t-manifesto-grid">
+      <div class="aos">
+        <div class="t-manifesto-label">La nostra filosofia</div>
+        <h2 class="t-manifesto-title">Persone e <em>Territorio</em></h2>
+        <p class="t-manifesto-body">
+          Non scegliamo i nostri ingredienti per comodità o per prezzo.
+          Li scegliamo perché dietro ognuno c'è una persona, un artigiano,
+          un contadino che ha scelto di fare le cose bene.
+          <br><br>
+          Dalla Burrata di Andria al Castelmagno delle nostre Langhe,
+          dal Crudo di Parma ai Peperoni di Carmagnola coltivati a pochi
+          chilometri da qui: ogni ingrediente è una storia che usiamo per
+          raccontare l'Italia attraverso la pizza.
+        </p>
+        <blockquote class="t-manifesto-quote">
+          "La pizza che valorizza le persone ed il territorio"
+        </blockquote>
+      </div>
+      <div class="aos aos-delay-1 t-manifesto-img-wrap">
+        <div class="t-manifesto-img">
+          <img src="assets/hometerritorio.jpeg" alt="Il territorio">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRODOTTI DEL TERRITORIO
+══════════════════════════════════════ -->
+<section class="t-products">
+  <div class="container">
+
+    <div class="t-products-header aos">
+      <div class="t-products-header-label">I nostri ingredienti</div>
+      <h2 class="t-products-header-title">Eccellenze <em>selezionate</em></h2>
+    </div>
+
+    <!-- ── RIGA 1: Burrata — hero centrato ── -->
+    <div class="t-row-hero">
+      <div class="t-product-card t-card-hero aos">
+        <div class="t-product-img">
+          <img src="assets/burratadiandria.png" alt="Burrata di Andria"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="t-product-img-placeholder" style="display:none">
+            <span>🧀</span><span>Aggiungi foto</span>
+          </div>
+          <span class="t-product-origin">Puglia</span>
+        </div>
+        <div class="t-product-body">
+          <div class="t-product-category">Latticini</div>
+          <div class="t-product-name">Burrata di Andria</div>
+          <div class="t-product-desc">La regina dei latticini pugliesi: guscio di mozzarella che racchiude stracciatella cremosa e panna. La utilizziamo fresca, in uscita, per non alterarne la texture irresistibile.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RIGA 2: Crudo, Fior di Latte, Prosciutto Cotto — 3 colonne ── -->
+    <div class="t-row-3">
+      @for (p of prodotti.slice(1, 4); track p.nome; let i = $index) {
+        <div class="t-product-card aos" [class]="'aos-delay-' + i">
+          <div class="t-product-img">
+            <img [src]="'assets/' + p.foto" [alt]="p.nome"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="t-product-img-placeholder" style="display:none">
+              <span>📸</span><span>Aggiungi foto</span>
+            </div>
+            <span class="t-product-origin">{{ p.origine }}</span>
+          </div>
+          <div class="t-product-body">
+            <div class="t-product-category">{{ p.categoria }}</div>
+            <div class="t-product-name">{{ p.nome }}</div>
+            <div class="t-product-desc">{{ p.descrizione }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- ── RIGA 3: Spianata grande + Gorgonzola — asimmetrico ── -->
+    <div class="t-row-2-asym">
+      @for (p of prodotti.slice(4, 6); track p.nome; let i = $index) {
+        <div class="t-product-card aos" [class]="'aos-delay-' + i">
+          <div class="t-product-img">
+            <img [src]="'assets/' + p.foto" [alt]="p.nome"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="t-product-img-placeholder" style="display:none">
+              <span>📸</span><span>Aggiungi foto</span>
+            </div>
+            <span class="t-product-origin">{{ p.origine }}</span>
+          </div>
+          <div class="t-product-body">
+            <div class="t-product-category">{{ p.categoria }}</div>
+            <div class="t-product-name">{{ p.nome }}</div>
+            <div class="t-product-desc">{{ p.descrizione }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- ── RIGA 4: Peperoni, Porri, Nocciole — 3 prodotti locali cuneesi ── -->
+    <div class="t-row-3">
+      @for (p of prodotti.slice(6, 9); track p.nome; let i = $index) {
+        <div class="t-product-card aos" [class]="'aos-delay-' + i">
+          <div class="t-product-img">
+            <img [src]="'assets/' + p.foto" [alt]="p.nome"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="t-product-img-placeholder" style="display:none">
+              <span>📸</span><span>Aggiungi foto</span>
+            </div>
+            <span class="t-product-origin">{{ p.origine }}</span>
+          </div>
+          <div class="t-product-body">
+            <div class="t-product-category">{{ p.categoria }}</div>
+            <div class="t-product-name">{{ p.nome }}</div>
+            <div class="t-product-desc">{{ p.descrizione }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- ── RIGA 5: Salsiccia + Castelmagno grande — asimmetrico invertito ── -->
+    <div class="t-row-2-asym-rev">
+      @for (p of prodotti.slice(9, 11); track p.nome; let i = $index) {
+        <div class="t-product-card aos" [class]="'aos-delay-' + i">
+          <div class="t-product-img">
+            <img [src]="'assets/' + p.foto" [alt]="p.nome"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="t-product-img-placeholder" style="display:none">
+              <span>📸</span><span>Aggiungi foto</span>
+            </div>
+            <span class="t-product-origin">{{ p.origine }}</span>
+          </div>
+          <div class="t-product-body">
+            <div class="t-product-category">{{ p.categoria }}</div>
+            <div class="t-product-name">{{ p.nome }}</div>
+            <div class="t-product-desc">{{ p.descrizione }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- ── RIGA 6: Fassona, Bufale, Farina — 3 colonne ── -->
+    <div class="t-row-3-bottom">
+      @for (p of prodotti.slice(11, 14); track p.nome; let i = $index) {
+        <div class="t-product-card aos" [class]="'aos-delay-' + i">
+          <div class="t-product-img">
+            <img [src]="'assets/' + p.foto" [alt]="p.nome"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="t-product-img-placeholder" style="display:none">
+              <span>📸</span><span>Aggiungi foto</span>
+            </div>
+            <span class="t-product-origin">{{ p.origine }}</span>
+          </div>
+          <div class="t-product-body">
+            <div class="t-product-category">{{ p.categoria }}</div>
+            <div class="t-product-name">{{ p.nome }}</div>
+            <div class="t-product-desc">{{ p.descrizione }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- ── RIGA 7: San Marzano — hero centrato finale ── -->
+    <div class="t-row-hero" style="margin-top: 2rem">
+      <div class="t-product-card t-card-hero aos">
+        <div class="t-product-img">
+          <img src="assets/pomodorosanmarzano.png" alt="Pomodoro San Marzano"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="t-product-img-placeholder" style="display:none">
+            <span>🍅</span><span>Aggiungi foto</span>
+          </div>
+          <span class="t-product-origin">Campania</span>
+        </div>
+        <div class="t-product-body">
+          <div class="t-product-category">Pomodoro</div>
+          <div class="t-product-name">Pomodoro San Marzano 100% Italiano</div>
+          <div class="t-product-desc">DOP, coltivato nell'Agro Sarnese-Nocerino in Campania. Polpa densa, dolce e con poca acidità: è il pomodoro della vera pizza napoletana. Lo usiamo come base per tutte le nostre rosse.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

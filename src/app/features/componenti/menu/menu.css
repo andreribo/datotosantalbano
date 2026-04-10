@@ -1,0 +1,580 @@
+/* ══════════════════════════════════════
+   UTILITY
+══════════════════════════════════════ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Etichetta piccola sopra i titoli */
+.section-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.8rem;
+}
+.section-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  opacity: 0.5;
+}
+.section-label.dark  { color: #B8913A; }
+.section-label.dark::before  { background: #B8913A; }
+.section-label.light { color: #C62828; }
+.section-label.light::before { background: #C62828; }
+
+/* Titolo grande della sezione */
+.section-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+.section-heading.dark  { color: #F5EFE6; }
+.section-heading.dark em  { color: transparent; -webkit-text-stroke: 1.5px rgba(245,239,230,0.3); font-style: normal; }
+.section-heading.light { color: #1A1410; }
+.section-heading.light em { color: transparent; -webkit-text-stroke: 1.5px rgba(26,20,16,0.2); font-style: normal; }
+
+/* Sottotitolo contatore */
+.section-count {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.section-count.dark  { color: rgba(245,239,230,0.35); }
+.section-count.light { color: rgba(26,20,16,0.35); }
+
+/* Animazione on-scroll */
+.aos {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.aos.visible        { opacity: 1; transform: translateY(0); }
+.aos-delay-1        { transition-delay: 0.08s; }
+.aos-delay-2        { transition-delay: 0.16s; }
+.aos-delay-3        { transition-delay: 0.24s; }
+.aos-delay-4        { transition-delay: 0.32s; }
+.aos-delay-5        { transition-delay: 0.40s; }
+.aos-delay-6        { transition-delay: 0.48s; }
+
+/* ══════════════════════════════════════
+   HERO MENÙ
+══════════════════════════════════════ */
+.menu-hero {
+  background: #1A1410;
+  padding: 7rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Scritta grande trasparente in background */
+.menu-hero::before {
+  content: 'MENÙ';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(8rem, 20vw, 16rem);
+  font-weight: 900;
+  letter-spacing: 20px;
+  color: rgba(184,145,58,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.menu-hero-eyebrow {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #87CEEB;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.menu-hero-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  color: #F5EFE6;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.menu-hero-title span { color: #C62828; }
+
+.menu-hero-sub {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245,239,230,0.45);
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+
+/* Pillole di navigazione rapida */
+.menu-nav-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.8s forwards;
+}
+
+.menu-nav-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(245,239,230,0.15);
+  color: rgba(245,239,230,0.5);
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.menu-nav-pill:hover {
+  border-color: #C62828;
+  color: #F5EFE6;
+  background: rgba(198,40,40,0.1);
+}
+
+/* ══════════════════════════════════════
+   SEZIONI — sfondo alternato
+══════════════════════════════════════ */
+.menu-section-dark {
+  padding: 6rem 0;
+  background: #1A1410;
+  position: relative;
+}
+
+.menu-section-light {
+  padding: 6rem 0;
+  background: #EDE5D8;
+  position: relative;
+}
+
+/* Numero grande decorativo in background */
+.section-bg-num {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  font-size: clamp(6rem, 12vw, 10rem);
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.section-bg-num.dark  { color: rgba(245,239,230,0.025); }
+.section-bg-num.light { color: rgba(26,20,16,0.04); }
+
+/* Header della sezione con titolo e contatore */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-header-right {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.section-header-right.dark  { color: rgba(245,239,230,0.3); }
+.section-header-right.light { color: rgba(26,20,16,0.3); }
+
+/* ══════════════════════════════════════
+   DIVISORE TEMATICO (tra pizze e resto)
+══════════════════════════════════════ */
+.thematic-divider {
+  padding: 5rem 0;
+  background: #0D0A07;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.thematic-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(198,40,40,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.thematic-divider-inner { position: relative; z-index: 1; }
+
+.thematic-divider h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #F5EFE6;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.8rem;
+}
+.thematic-divider h2 span { color: #C62828; }
+
+.thematic-divider p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(245,239,230,0.35);
+  letter-spacing: 2px;
+}
+
+.thematic-divider-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 2rem 0;
+}
+.thematic-divider-line::before,
+.thematic-divider-line::after {
+  content: '';
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,145,58,0.3), transparent);
+}
+
+.thematic-divider-diamond {
+  width: 6px; height: 6px;
+  background: #B8913A;
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════════
+   CARD PRODOTTO
+══════════════════════════════════════ */
+.product-card {
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.product-card:hover { transform: translateY(-6px); }
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 4/3; /* Questo crea il rettangolo standard della card */
+  position: relative;
+  overflow: hidden;
+  background: #000; /* Copre eventuali bordi se l'immagine carica male */
+  display: block;
+}
+
+.product-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* QUESTA È LA RIGA MAGICA: ritaglia l'immagine senza schiacciarla */
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.product-card:hover .product-img { transform: scale(1.04); }
+
+.product-img::after {
+  content: 'Foto'; /* Accorciato per sicurezza */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none; /* Evita che interferisca con i click */
+}
+
+.product-body { padding: 1rem 1.1rem 1.2rem; }
+
+.product-badge {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 2px 8px;
+  margin-bottom: 0.6rem;
+}
+
+.product-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.product-ing {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price { font-size: 1.1rem; font-weight: 800; color: #B8913A; }
+
+.product-tag {
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #C62828;
+  border: 1px solid rgba(198,40,40,0.25);
+  border-radius: 10px;
+  padding: 2px 7px;
+}
+
+/* Card su sfondo scuro */
+.card-dark {
+  background: #251c15;
+  border: 1px solid rgba(245,239,230,0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.card-dark:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.card-dark .product-name { color: #F5EFE6; }
+.card-dark .product-ing  { color: rgba(245,239,230,0.45); }
+.card-dark .product-badge {
+  background: rgba(198,40,40,0.15);
+  color: #E57373;
+  border: 1px solid rgba(198,40,40,0.2);
+}
+
+/* Card su sfondo chiaro */
+.card-light {
+  background: #F5EFE6;
+  border: 1px solid rgba(26,20,16,0.08);
+  box-shadow: 0 2px 12px rgba(26,20,16,0.06);
+}
+.card-light:hover { box-shadow: 0 12px 32px rgba(26,20,16,0.14); }
+.card-light .product-name { color: #1A1410; }
+.card-light .product-ing  { color: #6B5E52; }
+.card-light .product-badge {
+  background: rgba(198,40,40,0.08);
+  color: #C62828;
+  border: 1px solid rgba(198,40,40,0.2);
+}
+
+/* ══════════════════════════════════════
+   GRIGLIE
+══════════════════════════════════════ */
+
+/* 4 colonne — pizze rosse e stagione */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* 3 colonne — gourmet, hamburger, griglia, focacce */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Layout asimmetrico — pizze bianche (1 card grande + 4 normali) */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+}
+.asymmetric-grid .featured {
+  grid-row: span 2;
+}
+.asymmetric-grid .featured .product-img {
+  aspect-ratio: 3/4;
+}
+
+/* Layout 2+3 — pizze speciali */
+.split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.split-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card orizzontali — antipasti */
+.grid-horizontal-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.card-horizontal {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.card-horizontal:hover { transform: translateY(-4px); }
+.card-horizontal .product-img {
+  width: 140px;
+  height: 100%;
+  aspect-ratio: auto;
+  min-height: 110px;
+}
+.card-horizontal .product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-horizontal .product-img::after { display: none; }
+.card-horizontal .product-body { padding: 0.9rem 1rem; }
+
+/* Griglia dolci — 4 colonne con foto quadrata */
+.dolci-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.dolci-grid .product-img { aspect-ratio: 1; }
+
+/* ══════════════════════════════════════
+   SEZIONE ALTRE (hamburger, griglia, focacce)
+══════════════════════════════════════ */
+.other-section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ══════════════════════════════════════
+   CTA FINALE
+══════════════════════════════════════ */
+.menu-cta {
+  padding: 5rem 0;
+  background: #1A1410;
+  text-align: center;
+}
+
+.menu-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: #F5EFE6;
+  margin-bottom: 0.8rem;
+}
+.menu-cta h2 span { color: #C62828; }
+
+.menu-cta p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(245,239,230,0.4);
+  margin-bottom: 2rem;
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 2.2rem;
+  background: #25D366;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+.btn-wa:hover { background: #1ebe5b; }
+
+/* ══════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE MOBILE
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .grid-4               { grid-template-columns: repeat(2, 1fr); }
+  .grid-3               { grid-template-columns: repeat(2, 1fr); }
+  .other-section-grid   { grid-template-columns: repeat(2, 1fr); }
+  .dolci-grid           { grid-template-columns: repeat(2, 1fr); }
+  .split-grid           { grid-template-columns: 1fr; }
+  .split-grid-bottom    { grid-template-columns: repeat(2, 1fr); }
+  .asymmetric-grid      { grid-template-columns: repeat(2, 1fr); }
+  .asymmetric-grid .featured { grid-row: span 1; }
+  .asymmetric-grid .featured .product-img { aspect-ratio: 4/3; }
+  .grid-horizontal-2    { grid-template-columns: 1fr; }
+  .card-horizontal      { grid-template-columns: 100px 1fr; }
+}
+
+@media (max-width: 560px) {
+  .grid-4, .grid-3, .other-section-grid,
+  .dolci-grid, .split-grid-bottom,
+  .asymmetric-grid { grid-template-columns: 1fr; }
+}
+
+.product-desc {
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: italic;
+  font-size: 0.72rem;
+  color: rgba(245, 239, 230, 0.4);
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.product-extra {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(245, 239, 230, 0.4);
+  margin-top: 0.4rem;
+  font-style: italic;
+}

@@ -1,0 +1,8 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #0D0A07;
+  color: #F5EFE6;
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
