@@ -77,7 +77,7 @@ export class Territorio implements AfterViewInit {
       nome: 'Nocciole delle Langhe',
       categoria: 'Frutta secca',
       origine: 'Langhe, CN',
-      descrizione: "Le nocciole più pregiate d'Italia, coltivate sulle colline UNESCO delle Langhe. Dolci, croccanti, inconfondibili. Le usiamo nel Castelmagno.",
+      descrizione: "Le nocciole più pregiate d'Italia, coltivate sulle colline UNESCO delle Langhe. Dolci, croccanti, inconfondibili.",
       foto: 'noccioledellelanghe.png',
       layout: 'normale'
     },

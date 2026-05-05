@@ -131,13 +131,13 @@ export class Menu {
       descrizione: "...troppo buona per condividerla",
       percorso: "assets/pizze/nondirloanessuno.jpeg"
     },
-    {
+    /*{
       nome: "Non Dirlo Al Portafoglio",
       ingredienti: "Pomodoro, Fiordilatte, Salame cotto, Robiola e Crema al Tartufo",
       prezzo: "17,00",
       descrizione: "...perché sa già che ti sei fatto un regalo costoso",
       percorso: ""
-    },
+    },*/
     {
       nome: "Non Dirlo Al Palestrato",
       ingredienti: "Bufala, Zucchine fritte e Gamberi",
@@ -425,7 +425,7 @@ export class Menu {
       ingredienti: "Classico, Nutella, Pistacchio",
       prezzo: "5,00",
       nota: "Preparati da noi! Disponibili per asporto."
-    },
+    }/*,
     {
       nome: "Dolce Fuori Menù",
       ingredienti: "Chiedi la disponibilità al personale",
@@ -437,7 +437,7 @@ export class Menu {
       ingredienti: "Chiedi la disponibilità al personale",
       prezzo: "5,00",
       nota: "Preparati da noi! Disponibili per asporto."
-    }
+    }*/
   ];
 
   antipasti: any[] = [
@@ -455,18 +455,18 @@ export class Menu {
       nome: "Polpette Della Nonna",
       ingredienti: "Polpette con Focaccina",
       prezzo: "9,00"
-    },
+    }/*,
     {
       nome: "Stick Di Polenta Fritta Al Formaggio",
       ingredienti: "6 pezzi",
       prezzo: "5,00"
-    },
-    {
+    }*/
+    /*,{
       nome: "Le Montanarine",
       ingredienti: "Antipasto misto con quattro pizzette fritte...",
       prezzo: "10,00",
       novita: true
-    }
+    }*/
   ];
 
   focacce: any[] = [

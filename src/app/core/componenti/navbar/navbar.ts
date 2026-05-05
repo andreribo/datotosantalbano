@@ -20,9 +20,9 @@ export class Navbar {
     const navbar = document.querySelector('.toto-navbar') as HTMLElement;
     if (navbar) {
       if (this.isScrolled) {
-        navbar.style.background = 'rgba(8, 6, 4, 0.97)';
+        navbar.style.background = 'rgba(103, 124, 137, 0.97)';
       } else {
-        navbar.style.background = `rgba(8, 6, 4, ${opacity.toFixed(2)})`;
+        navbar.style.background = `rgba(103, 124, 137, ${opacity.toFixed(2)})`;
       }
     }
   }

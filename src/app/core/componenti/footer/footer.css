@@ -113,6 +113,49 @@
   transition: background 0.3s, transform 0.2s;
 }
 
+.btn-prenota {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  background: #677c89;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-prenota:hover {
+  background: #566976;
+}
+
+.btn-asporto {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2.5rem;
+  background: #bbc3b8;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Effetto hover per dare riscontro visivo al click */
+.btn-asporto:hover {
+  background: #566976;
+}
+
 .btn-outline-light {
   display: inline-flex;
   align-items: center;
